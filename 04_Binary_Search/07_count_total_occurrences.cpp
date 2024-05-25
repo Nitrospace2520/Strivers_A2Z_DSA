@@ -48,9 +48,6 @@ int findFirstOccurrences(int nums[], int n, int target)
  */
 int findLastOccurrences(int nums[], int n, int target)
 {
-    int lb = findFirstOccurrences(nums, n, target);
-    if (lb == -1)
-        return -1;
     int ub = std::upper_bound(nums, nums + n, target) - nums;
     return ub - 1;
 }
@@ -84,7 +81,7 @@ int findTotalOccurrences(int nums[], int n, int target)
     //?> Optimal Approach: (by using Binary Search) Time Complexity: O(logN), Space Complexity: O(1)
     int firstIndex = findFirstOccurrences(nums, n, target);
     if (firstIndex == -1)
-        return -1;
+        return 0;
     int lastIndex = findLastOccurrences(nums, n, target);
     return (lastIndex - firstIndex) + 1;
 }
