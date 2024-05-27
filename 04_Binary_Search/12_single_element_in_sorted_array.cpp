@@ -7,6 +7,13 @@
 
 #include <bits/stdc++.h>
 
+/**
+ * Find the single element in a sorted array where every element appears twice except for one.
+ *
+ * @param nums The sorted array of integers.
+ * @param n The number of elements in the array.
+ * @return The single element that appears only once in the array.
+ */
 int find_single_element_in_sorted_array(int nums[], int n)
 {
     /* //? Brute force approach: Time Complexity: O(n) and Space Complexity: O(1)
