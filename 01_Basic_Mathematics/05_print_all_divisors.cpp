@@ -28,29 +28,29 @@ void printDivisors(int n)
     } */
 
     //? Optimized approach: Check all numbers from 1 to sqrt(n) and print if it is a divisor. Time complexity: O(sqrt(n)) but doesn't print in sorted order. You can sort the divisors if needed using a vector/list.
-    // std::vector<int> divisors;
-    for (int i = 1; (i * i) <= n; i++)
+    /* for (int i = 1; (i * i) <= n; i++)
     {
         if (n % i == 0)
         {
             if (n / i == i)
-            {
-                std::cout << i << " "; // OR
-                // divisors.push_back(i);
-            }
+                std::cout << i << " ";
             else
-            {
-                std::cout << i << " " << n / i << " "; // OR
-                // divisors.push_back(i);
-                // divisors.push_back(n / i);
-            }
+                std::cout << i << " " << n / i << " ";
         }
+    } */
+    //$ For Sorted Order:=
+    int i = 1;
+    for (; i * i < n; i++)
+    {
+        if (n % i == 0)
+            std::cout << i << " ";
     }
-    // std::sort(divisors.begin(), divisors.end());
-    // for (int i = 0; i < divisors.size(); i++)
-    // {
-    //     std::cout << divisors[i] << " ";
-    // }
+    for (; i > 1; i--)
+    {
+        if (n % i == 0)
+            std::cout << n / i << " ";
+    }
+    std::cout << n << std::endl;
 }
 
 int main()
