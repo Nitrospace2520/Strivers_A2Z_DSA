@@ -42,7 +42,7 @@ int max_sum_subarray(int arr[], int n, int k)
         window_sum = window_sum - arr[i - k] + arr[i];
         max_sum = std::max(max_sum, window_sum);
     }
-    // return max_sum;
+    return max_sum;
 }
 
 int main()
