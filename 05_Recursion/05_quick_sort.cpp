@@ -16,7 +16,7 @@
  */
 int partition01(int nums[], int start, int end)
 {
-    //* select the last element as pivot element
+    //* select the last element as pivot element (Lamuto Paritition)
     int pivot = nums[end];
     int pIndex = start - 1;
     for (int i = start; i < end; i++)
@@ -42,7 +42,7 @@ int partition01(int nums[], int start, int end)
  */
 int partition02(int nums[], int start, int end)
 {
-    //* select the first element as pivot element
+    //* select the first element as pivot element (Hoare's Paritition)
     int pivot = nums[start];
     int pIndex = end + 1;
     for (int i = end; i > start; i--)
