@@ -7,14 +7,30 @@
 
 #include <bits/stdc++.h>
 
+/**
+ * Helper function to recursively explore all possible combinations of numbers from the input array.
+ *
+ * This function is called recursively to explore all possible combinations of numbers from the input array
+ * that sum up to the target value. The function stores the valid combinations in a result vector.
+ *
+ * @param nums An array of integers from which combinations are formed.
+ * @param n The size of the input array.
+ * @param target The target sum for the combinations.
+ * @param idx The current index of the input array.
+ * @param store A vector to store the current combination.
+ * @param res A vector to store all valid combinations.
+ */
 void helper_function(int nums[], int n, int target, int idx, std::vector<int> &store, std::vector<std::vector<int>> &res)
 {
-    if (idx == n)
+    if (target < 0)
+        return;
+    if (target == 0)
     {
-        if (target == 0)
-            res.push_back(store);
+        res.push_back(store);
         return;
     }
+    if (idx >= n)
+        return;
 
     if (nums[idx] <= target)
     {
@@ -23,6 +39,37 @@ void helper_function(int nums[], int n, int target, int idx, std::vector<int> &s
         store.pop_back();
     }
     helper_function(nums, n, target, idx + 1, store, res);
+}
+
+/**
+ * Helper function to recursively explore all possible combinations of numbers from the input array.
+ *
+ * This function is called recursively to explore all possible combinations of numbers from the input array
+ * that sum up to the target value. The function stores the valid combinations in a result vector.
+ *
+ * @param nums An array of integers from which combinations are formed.
+ * @param n The size of the input array.
+ * @param target The target sum for the combinations.
+ * @param idx The current index of the input array.
+ * @param store A vector to store the current combination.
+ * @param set A vector to store all valid combinations.
+ */
+void helper_function2(int nums[], int n, int target, int idx, std::vector<int> &store, std::vector<std::vector<int>> &set)
+{
+    if (target == 0)
+    {
+        set.push_back(store);
+        return;
+    }
+    for (int i = idx; i < n; i++)
+    {
+        if (nums[i] > target)
+            break;
+
+        store.push_back(nums[i]);
+        helper_function2(nums, n, target - nums[i], i, store, set);
+        store.pop_back();
+    }
 }
 
 /**
@@ -42,6 +89,7 @@ void combination_sum(int nums[], int n, int target)
     int idx = 0;
 
     helper_function(nums, n, target, idx, store, res);
+    // helper_function2(nums, n, target, idx, store, res);
 
     for (auto row : res)
     {

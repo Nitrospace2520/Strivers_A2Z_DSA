@@ -7,6 +7,19 @@
 
 #include <bits/stdc++.h>
 
+/**
+ * @brief Helper function to find all unique combinations in an array where the sum of the numbers is equal to a target value.
+ *
+ * This function uses recursion and backtracking to explore all possible combinations of numbers that sum up to the target value.
+ * It avoids duplicate combinations by skipping over consecutive duplicate numbers.
+ *
+ * @param nums Array of integers to find combinations from.
+ * @param n Size of the nums array.
+ * @param target The target sum for the combinations.
+ * @param idx The current index in the nums array to consider for the combination.
+ * @param store Vector to store the current combination of numbers.
+ * @param set Set of vectors to store all unique combinations that sum up to the target.
+ */
 void helper_function1(int nums[], int n, int target, int idx, std::vector<int> &store, std::set<std::vector<int>> &set)
 {
     if (idx == n)
@@ -24,8 +37,23 @@ void helper_function1(int nums[], int n, int target, int idx, std::vector<int> &
     helper_function1(nums, n, target, idx + 1, store, set);
 }
 
+/**
+ * @brief Helper function to find all unique combinations in an array where the sum of the numbers is equal to a target value.
+ *
+ * This function uses recursion and backtracking to explore all possible combinations of numbers that sum up to the target value.
+ * It avoids duplicate combinations by skipping over consecutive duplicate numbers.
+ *
+ * @param nums Array of integers to find combinations from.
+ * @param n Size of the nums array.
+ * @param target The target sum for the combinations.
+ * @param idx The current index in the nums array to consider for the combination.
+ * @param store Vector to store the current combination of numbers.
+ * @param set Vector of vectors to store all unique combinations that sum up to the target.
+ */
 void helper_function2(int nums[], int n, int target, int idx, std::vector<int> &store, std::vector<std::vector<int>> &set)
 {
+    if (target < 0)
+        return;
     if (target == 0)
     {
         set.push_back(store);
@@ -44,6 +72,19 @@ void helper_function2(int nums[], int n, int target, int idx, std::vector<int> &
     }
 }
 
+/**
+ * @brief Finds all unique combinations in the array where the numbers sum up to the target.
+ *
+ * This function sorts the input array and then uses a helper function to find all unique combinations
+ * that sum up to the given target. The results are printed to the standard output.
+ *
+ * @param nums The input array of integers.
+ * @param n The size of the input array.
+ * @param target The target sum for the combinations.
+ *
+ * @note The function uses a better approach with a time complexity of O(2^t * k), where t is the target
+ * and k is the average length of each combination.
+ */
 void combination_sum_II(int nums[], int n, int target)
 {
     // //?> Naive Approach: Time complexity: O(2^t * k * logN)
@@ -69,6 +110,7 @@ void combination_sum_II(int nums[], int n, int target)
         std::cout << "\n";
     }
 }
+
 int main(int argc, char const *argv[])
 {
     int nums[] = {1, 1, 1, 2, 1, 2};
