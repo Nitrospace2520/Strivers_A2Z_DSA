@@ -7,11 +7,23 @@
 #include <iostream>
 
 /**
- * Find the maximum profit that can be achieved by buying and selling a stock.
+ * Finds the maximum profit that can be obtained by buying and selling a stock once
  *
- * @param prices An array of stock prices
- * @param n The number of elements in the prices array
- * @return The maximum profit that can be achieved
+ * This function implements the solution to the "Best Time to Buy and Sell Stock" problem
+ * where you are given an array of prices where prices[i] is the price of a given stock
+ * on the ith day.
+ *
+ * @param prices Array containing daily prices of the stock
+ * @param n Length of the prices array
+ * @return Maximum profit that can be achieved by buying and selling once
+ *
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
+ *
+ * Example:
+ *   Input: prices = [7,1,5,3,6,4], n = 6
+ *   Output: 5
+ *   Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6)
  */
 int find_max_profit(int prices[], int n)
 {

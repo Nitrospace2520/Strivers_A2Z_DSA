@@ -1,6 +1,19 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
+/**
+ * @brief Finds the second smallest element in a vector of integers
+ *
+ * Uses a single pass approach to track both smallest and second smallest elements.
+ * If all elements are same or vector has only one element, returns INT_MAX.
+ *
+ * Time Complexity: O(n) where n is size of array
+ * Space Complexity: O(1)
+ *
+ * @param arr Reference to vector of integers to search in
+ * @return Second smallest element in array, or INT_MAX if it doesn't exist
+ */
 int find_second_smallest_element(vector<int> &arr)
 {
     /* //! BruteForce Approach

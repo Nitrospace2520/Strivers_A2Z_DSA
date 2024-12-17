@@ -6,6 +6,22 @@
  */
 #include <bits/stdc++.h>
 
+/**
+ * @brief Finds the majority element in a vector (element appearing more than n/2 times)
+ *
+ * Implementation includes three approaches:
+ * 1. Brute Force - O(N^2) time, O(1) space
+ * 2. Hash Map - O(N) time, O(N) space
+ * 3. Moore's Voting Algorithm - O(N) time, O(1) space
+ *
+ * Current implementation uses Moore's Voting Algorithm which:
+ * - Finds a candidate majority element in first pass
+ * - Verifies if candidate appears more than n/2 times in second pass
+ *
+ * @param nums Vector of integers to search for majority element
+ * @return int Majority element if it exists, -1 otherwise
+ * @note Majority element is guaranteed to exist if it appears more than n/2 times
+ */
 int majority_element(std::vector<int> &nums)
 {
     /* //? Brute-Force Approach: Time: O(N*N), Space: O(1)

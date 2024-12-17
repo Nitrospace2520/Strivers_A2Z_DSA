@@ -7,12 +7,32 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+
+/**
+ * @brief Prints all elements of a vector array separated by spaces
+ *
+ * @param arr Reference to vector of integers to be printed
+ *
+ * Prints each element of the input vector followed by a space,
+ * and adds a newline character at the end.
+ */
 void print_arr(vector<int> &arr)
 {
     for (auto &&i : arr)
         cout << i << " ";
     cout << "\n";
 }
+
+/**
+ * @brief Find the union of two sorted arrays
+ *
+ * @param arr1 Reference to the first sorted array
+ * @param arr2 Reference to the second sorted array
+ *
+ * This function finds the union of two sorted arrays and prints the union array.
+ * Time Complexity: O(N1 + N2), where N1 is the size of the first array and N2 is the size of the second array
+ * Space Complexity: O(N1 + N2)
+ */
 void union_of_two_sorted_arrays(const vector<int> &arr1, const vector<int> &arr2)
 {
     int n = arr1.size() + arr2.size();

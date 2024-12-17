@@ -8,12 +8,35 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
+/**
+ * @brief Prints all elements of an integer vector to console
+ *
+ * This function takes a vector of integers and prints each element
+ * separated by spaces, followed by a newline character.
+ *
+ * @param array Reference to the vector of integers to be printed
+ */
 void printArray(vector<int> &array)
 {
     for (auto &&i : array)
         cout << i << " ";
     cout << endl;
 }
+
+/**
+ * @brief Left rotates an array by one position in-place
+ *
+ * This function takes an array of integers and shifts all elements
+ * one position to the left. The last element is moved to the first
+ * position.
+ *
+ * Time Complexity: O(n) where n is size of input array
+ * Space Complexity: O(1)
+ *
+ * @param array Reference to vector of integers to be rotated
+ * @return void Modifies array in-place and prints result
+ */
 void left_rotate_by_1(vector<int> &array)
 {
     /* //! BruteForce Solution (T.C : O(N), S.C : O(N))

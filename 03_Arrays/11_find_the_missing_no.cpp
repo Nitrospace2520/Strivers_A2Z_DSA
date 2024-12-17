@@ -7,6 +7,27 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
+/**
+ * @brief Finds the missing number in a sequence of integers from 1 to N
+ *
+ * Given an array containing N distinct integers in the range [1, N+1], find the missing number.
+ * The array may be sorted or unsorted. Only one number is missing from the sequence.
+ *
+ * Multiple solution approaches:
+ * 1. Brute Force: Check each number from 1 to N if present in array. O(N^2) time
+ * 2. Better: Use visited array to mark present numbers. O(N) time, O(N) space
+ * 3. Optimal:
+ *    a) Using sum formula: N*(N+1)/2 - sum of array elements. O(N) time
+ *    b) Using XOR: XOR all array elements and numbers 1 to N. O(N) time
+ *
+ * @param arr Vector containing N distinct integers in range [1, N+1] with one missing number
+ * @return The missing number from the sequence, or -1 if no number is missing
+ *
+ * @note Current implementation uses XOR approach which works for both sorted/unsorted arrays
+ * @time_complexity O(N) where N is the size of input array
+ * @space_complexity O(1)
+ */
 int find_the_missing_no(const vector<int> &arr)
 {
     /* // ! BruteForce Solution: T.C: O(N*N), S.C: O(1) where N => arr.size()
@@ -59,6 +80,7 @@ int find_the_missing_no(const vector<int> &arr)
     // }
     // xor2 = xor2 ^ arr.size();
     // return xor1 ^ xor2;
+
     // ? OR work for both sorted or unsorted array:-
     int sum = 0;
     for (auto ele : arr)

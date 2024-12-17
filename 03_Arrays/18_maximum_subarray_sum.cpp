@@ -7,6 +7,27 @@
 
 #include <bits/stdc++.h>
 
+/**
+ * @brief Finds the maximum sum of a contiguous subarray within the given vector using Kadane's Algorithm
+ *
+ * This function implements three approaches:
+ * 1. Brute Force - O(N^3) time complexity
+ * 2. Better Approach - O(N^2) time complexity
+ * 3. Optimal (Kadane's Algorithm) - O(N) time complexity
+ *
+ * The implemented solution uses Kadane's Algorithm which maintains a running sum
+ * and resets it to 0 whenever it becomes negative, while keeping track of the maximum sum seen so far.
+ *
+ * @param nums Vector of integers containing the array elements
+ * @return int Maximum sum of any contiguous subarray within the given array
+ *
+ * @example
+ * vector<int> arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+ * int result = maximum_subarray_sum(arr); // returns 6 (from subarray {4,-1,2,1})
+ *
+ * @time_complexity O(N) where N is the size of input vector
+ * @space_complexity O(1) constant extra space
+ */
 int maximum_subarray_sum(std::vector<int> &nums)
 {
     /* //? BruteForce Approach: Time: O(N^3), Space: O(1)

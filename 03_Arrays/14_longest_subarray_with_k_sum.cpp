@@ -6,6 +6,25 @@
  */
 #include <bits/stdc++.h>
 
+/**
+ * @brief Finds the length of the longest subarray with sum equal to k
+ *
+ * This function implements three different approaches:
+ * 1. Brute Force (commented) - Check all possible subarrays O(N^2)
+ * 2. Better (commented) - Using hash map for prefix sums O(N), works with negative numbers
+ * 3. Optimal - Two pointer sliding window O(N), works only with non-negative numbers
+ *
+ * @param array Input vector of integers
+ * @param k Target sum to find in subarrays
+ * @return int Length of the longest subarray with sum k
+ *
+ * @note The optimal solution only works for arrays containing zeros and positive integers
+ * @note For arrays with negative numbers, use the hash map approach
+ *
+ * Example:
+ * Input: array = [1,2,3,1,1,1,1], k = 3
+ * Output: 3 (subarray [1,1,1])
+ */
 int longest_subarray_with_k_sum(std::vector<int> &array, int &k)
 {
     /* // ! Brute-Force Approach: T.C: O(N*N), S.C: O(1)

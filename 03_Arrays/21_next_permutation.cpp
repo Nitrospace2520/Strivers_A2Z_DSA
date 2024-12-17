@@ -10,11 +10,22 @@
 #include <algorithm>
 
 /**
- * Find the next permutation of a given sequence of numbers.
+ * @brief Finds the next permutation of an array of integers in lexicographically ascending order
  *
- * @param nums An array of numbers
- * @param n The number of elements in the nums array
- * @return nums The next permutation of the given sequence of numbers
+ * The next permutation of an array of integers is the next lexicographically greater permutation
+ * of its elements. If such arrangement is not possible, it must rearrange it as the lowest
+ * possible order (i.e., sorted in ascending order).
+ *
+ * @param nums Array of integers to find next permutation for
+ * @param n Length of the input array
+ * @return std::vector<int> Array containing the next permutation
+ *
+ * Example:
+ * Input: nums = [1,2,3]
+ * Output: [1,3,2]
+ *
+ * Time Complexity: O(n) where n is length of array
+ * Space Complexity: O(1) for optimal approach
  */
 std::vector<int> next_permutation(int nums[], int n)
 {

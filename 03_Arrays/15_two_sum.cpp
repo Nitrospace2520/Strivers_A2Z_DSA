@@ -7,6 +7,26 @@
 
 #include <bits/stdc++.h>
 
+/**
+ * @brief Finds pairs of indices whose values sum up to the target
+ *
+ * This function implements three different approaches to find pairs of numbers that sum up to target:
+ * 1. Brute Force: Check every possible pair (commented out)
+ * 2. Hash Map: Use unordered_map to track complements (commented out)
+ * 3. Two Pointer: Sort array and use two pointers to find pairs
+ *
+ * @param nums Vector containing the input array of integers
+ * @param target Reference to target sum to find
+ * @return Vector of pairs containing indices of numbers that sum to target
+ *         Returns {{-1, -1}} if no solution exists
+ *
+ * @time O(NlogN) for the two pointer approach
+ * @space O(N) to store the hash map
+ *
+ * Example:
+ *     nums = [2,7,11,15], target = 9
+ *     Returns: {{0,1}} as nums[0] + nums[1] = 2 + 7 = 9
+ */
 std::vector<std::pair<int, int>> two_sum(std::vector<int> &nums, int &target)
 {
     /* //? Brute-Force Approach: Time: O(N*N), Space: O(1)

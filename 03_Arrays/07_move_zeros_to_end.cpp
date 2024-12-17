@@ -7,12 +7,32 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
+/**
+ * @brief Prints all elements of the array to standard output
+ *
+ * This function takes a vector of integers and prints each element
+ * separated by a space, followed by a newline character.
+ *
+ * @param arr Reference to the vector of integers to be printed
+ */
 void print_array(vector<int> &arr)
 {
     for (auto i : arr)
         cout << i << " ";
     cout << endl;
 }
+
+/**
+ * @brief Moves all zeros to the end of the array
+ *
+ * @details This function takes a vector of integers and moves all zeros
+ * to the end of the array while maintaining the order of non-zero elements.
+ * Time Complexity: O(n), where n is the size of the array
+ * Space Complexity: O(1)
+ *
+ * @param arr Reference to the vector of integers to be modified
+ */
 void move_zeros_to_end(vector<int> &arr)
 {
     /* // ! Brute-Force Approach (T.C: O(N), S.C: O(X) where X is the non-zero elements)
@@ -80,6 +100,7 @@ void move_zeros_to_end(vector<int> &arr)
 
     print_array(arr);
 }
+
 int main()
 {
     vector<int> arr = {1, 0, 2, 0, 3, 0, 4, 0, 0, 0, 0, 0, 5};

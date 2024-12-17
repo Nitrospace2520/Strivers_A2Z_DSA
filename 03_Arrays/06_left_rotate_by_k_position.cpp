@@ -7,19 +7,51 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
+/**
+ * @brief Prints all elements of the array to standard output
+ *
+ * This function takes a vector of integers and prints each element
+ * separated by a space, followed by a newline character.
+ *
+ * @param arr Reference to the vector of integers to be printed
+ */
 void printArray(vector<int> &arr)
 {
     for (auto &&i : arr)
         cout << i << " ";
     cout << endl;
 }
+
+/**
+ * @brief Rotates all elements in the vector one position to the left.
+ *
+ * @details Takes first element and stores it temporarily. Shifts all other elements
+ * one position left, then places the temporary element at the end of vector.
+ * Time Complexity: O(n), where n is size of vector
+ * Space Complexity: O(1)
+ *
+ * @param arr Reference to vector of integers to be rotated
+ */
 void left_rotate_by_1(vector<int> &arr)
 {
     int t = arr[0];
-    for (int i = 0; i < arr.size(); i++)
+    for (int i = 1; i < arr.size(); i++)
         arr[i - 1] = arr[i];
     arr[arr.size() - 1] = t;
 }
+
+/**
+ * @brief Reverses the array from start to end index
+ *
+ * @details Swaps elements from start to end index
+ * Time Complexity: O(n), where n is size of vector
+ * Space Complexity: O(1)
+ *
+ * @param arr Reference to vector of integers to be reversed
+ * @param start Starting index of the array
+ * @param end Ending index of the array
+ */
 void reverseArray(vector<int> &arr, int start, int end)
 {
     while (start < end)
@@ -31,6 +63,17 @@ void reverseArray(vector<int> &arr, int start, int end)
         end--;
     }
 }
+
+/**
+ * @brief Rotates all elements in the vector k positions to the left.
+ *
+ * @details Reverses the array from 0 to k-1, then from k to n-1, then the whole array.
+ * Time Complexity: O(n), where n is size of vector
+ * Space Complexity: O(1)
+ *
+ * @param arr Reference to vector of integers to be rotated
+ * @param k Number of positions to rotate the array
+ */
 void left_rotate_by_k(vector<int> &arr, int k = 1)
 {
     k = k % arr.size();
@@ -54,6 +97,7 @@ void left_rotate_by_k(vector<int> &arr, int k = 1)
 
     printArray(arr);
 }
+
 int main()
 {
     vector<int> arr = {1, 2, 3, 4, 5, 6, 7};

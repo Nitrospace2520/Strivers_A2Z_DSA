@@ -1,6 +1,18 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
+/**
+ * @brief Finds the largest element in a given vector of integers
+ *
+ * This function takes a vector of integers and returns the maximum element.
+ * It uses a single pass approach by maintaining a running maximum.
+ * Time Complexity: O(n) where n is the size of vector
+ * Space Complexity: O(1)
+ *
+ * @param arr Reference to the vector of integers to search through
+ * @return int Returns the largest element found in the vector
+ */
 int find_largest_element(vector<int> &arr)
 {
     /* //! BruteForce Approach
