@@ -109,6 +109,101 @@ public:
     }
 };
 
+class QueueUsingLinkedList
+{
+private:
+    struct Node
+    {
+        int data;
+        Node *next;
+        Node(int data)
+        {
+            this->data = data;
+            this->next = nullptr;
+        }
+    };
+    Node *front;
+    Node *rear;
+    int size;
+
+public:
+    QueueUsingLinkedList()
+    {
+        front = rear = nullptr;
+        size = 0;
+    }
+    ~QueueUsingLinkedList()
+    {
+        Node *temp = front;
+        while (temp != nullptr)
+        {
+            Node *next = temp->next;
+            delete temp;
+            temp = next;
+        }
+    }
+    // * Enqueue operation:=
+    void enqueue(int data)
+    {
+        Node *newNode = new Node(data);
+        if (rear == nullptr)
+            front = rear = newNode;
+        else
+        {
+            rear->next = newNode;
+            rear = newNode;
+        }
+        size++;
+    }
+    // * Dequeue operation:=
+    int dequeue()
+    {
+        if (front == nullptr)
+        {
+            std::cout << "Queue is empty" << std::endl;
+            return -1;
+        }
+        int data = front->data;
+        Node *temp = front;
+        front = front->next;
+        if (front == nullptr)
+            rear = nullptr;
+        delete temp;
+        size--;
+        return data;
+    }
+    // * Front operation:=
+    int getFront()
+    {
+        if (front == nullptr)
+        {
+            std::cout << "Queue is empty" << std::endl;
+            return -1;
+        }
+        return front->data;
+    }
+    // * Rear operation:=
+    int getRear()
+    {
+        if (rear == nullptr)
+        {
+            std::cout << "Queue is empty" << std::endl;
+            return -1;
+        }
+        return rear->data;
+    }
+    // * Size operation:=
+    int getSize()
+    {
+        return size;
+    }
+    // * isEmpty operation:=
+    bool isEmpty()
+    {
+        return size == 0;
+    }
+};
+
 int main(int argc, char const *argv[])
 {
     // QueueUsingArray q(5);
@@ -126,6 +221,23 @@ int main(int argc, char const *argv[])
     // std::cout << "Front element: " << queue->getFront() << std::endl;
     // std::cout << "Rear element: " << queue->getRear() << std::endl;
     // std::cout << "Size: " << queue->getSize() << std::endl;
+
+    //! QueueUsingLinkedList
+    QueueUsingLinkedList q;
+    q.enqueue(10);
+    q.enqueue(20);
+    q.enqueue(30);
+    std::cout << "Front element: " << q.getFront() << std::endl;
+    std::cout << "Rear element: " << q.getRear() << std::endl;
+    std::cout << "Size: " << q.getSize() << std::endl;
+    // //$ OR
+    QueueUsingLinkedList *queue = new QueueUsingLinkedList();
+    queue->enqueue(10);
+    queue->enqueue(20);
+    queue->enqueue(30);
+    std::cout << "Front element: " << queue->getFront() << std::endl;
+    std::cout << "Rear element: " << queue->getRear() << std::endl;
+    std::cout << "Size: " << queue->getSize() << std::endl;
 
     return 0;
 }
